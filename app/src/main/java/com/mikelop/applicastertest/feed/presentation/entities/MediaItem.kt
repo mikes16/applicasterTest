@@ -1,6 +1,6 @@
-package com.mikelop.applicastertest.feed.data
+package com.mikelop.applicastertest.feed.presentation.entities
 
-data class MediaItemDomain(
+data class MediaItem(
     private val src: String = "",
     private val type: String = "",
     private val scale: String = "",
