@@ -17,4 +17,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TitleFeed">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/color01</item>
+    </style>
+
 </resources>

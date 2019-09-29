@@ -1,6 +1,5 @@
 package com.mikelop.applicastertest.common.di
 
-
 import com.mikelop.applicastertest.BuildConfig
 import com.mikelop.applicastertest.common.utils.NetworkHandler
 import okhttp3.OkHttpClient

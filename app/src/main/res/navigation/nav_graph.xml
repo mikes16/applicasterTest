@@ -9,5 +9,18 @@
         android:name="com.mikelop.applicastertest.feed.presentation.view.FeedFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_dashboardFragment_to_newsLinkFragment"
+            app:destination="@id/newsLinkFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsLinkFragment"
+        android:name="com.mikelop.applicastertest.link.presentation.view.NewsLinkFragment"
+        android:label="fragment_news_link"
+        tools:layout="@layout/fragment_news_link" >
+
+        <argument
+            android:name="contentSrc"
+            app:argType="string" />
     </fragment>
 </navigation>

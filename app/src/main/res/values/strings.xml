@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">applicasterTest</string>
 
+    <string name="feed_title">News Feed</string>
+    <string name="news_image_cd">news</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

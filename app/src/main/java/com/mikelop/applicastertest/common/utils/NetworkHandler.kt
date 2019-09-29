@@ -10,10 +10,10 @@ import com.mikelop.applicastertest.common.extensions.connectivityManager
  * Injectable class which returns information about the network connection state.
  */
 class NetworkHandler(private val context: Context) {
-    val isConnected get() =
+    val isConnected:Boolean get() =
     context.connectivityManager.run {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getNetworkCapabilities(activeNetwork)?.run {
+            getNetworkCapabilities(activeNetwork)!!.run {
                 when {
                     hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
                     hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
@@ -23,7 +23,7 @@ class NetworkHandler(private val context: Context) {
             }
         } else {
             @Suppress("DEPRECATION")
-            activeNetworkInfo?.run {
+            activeNetworkInfo!!.run {
                 when (type) {
                     ConnectivityManager.TYPE_WIFI,
                     ConnectivityManager.TYPE_MOBILE,
