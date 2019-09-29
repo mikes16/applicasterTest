@@ -16,7 +16,7 @@ abstract class UseCase<out Type, in Params> where Type : Any {
     abstract suspend fun run(params: Params): Either<Failure, Type>
 
 
-    operator fun invoke(params: Params, onResult: CompletionBlock<Type>) {
+    operator fun invoke(params: Params, onResult: CompletionBlock<Type>){
         unsubscribe()
         parentJob = Job()
         CoroutineScope(foregroundContext + parentJob).launch{
@@ -28,12 +28,10 @@ abstract class UseCase<out Type, in Params> where Type : Any {
         }
     }
 
-    fun unsubscribe() {
+    private fun unsubscribe() {
         parentJob.apply {
             cancelChildren()
             cancel()
         }
     }
-
-    class None
 }

@@ -17,4 +17,12 @@ internal class FeedRepositoryImpl(private val network: NetworkHandler,
             Either.Left(Failure.NetworkConnection)
         }
     }
+
+    override suspend fun getVideos(): Either<Failure, FeedData> {
+        return if(network.isConnected){
+            feedNet.getVideosJson()
+        }else{
+            Either.Left(Failure.NetworkConnection)
+        }
+    }
 }

@@ -10,6 +10,7 @@ import com.mikelop.applicastertest.common.Failure
 import com.mikelop.applicastertest.common.baseviews.KoinFragment
 import com.mikelop.applicastertest.feed.di.feedModules
 import com.mikelop.applicastertest.feed.di.feedRepositoryModules
+import com.mikelop.applicastertest.feed.presentation.entities.Entry
 import com.mikelop.applicastertest.feed.presentation.viewModel.FeedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.module.Module
@@ -34,15 +35,23 @@ class FeedFragment : KoinFragment() {
     override fun onStart() {
         super.onStart()
 
-        chatViewModel.failure.observe(viewLifecycleOwner, Observer {
-            val errorMessage = when (it){
-                is Failure.NetworkConnection -> "Network Connection Error"
-                is Failure.NoResponse -> "Server Not Responding"
-                is Failure.ServerError -> "code: ${it.code}, message: ${it.message}"
-                is Failure.FeatureFailure -> "Unexpected Error"
-            }
-            Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
-        })
+        // Observers
+        chatViewModel.failure.observe(viewLifecycleOwner, onErrorOccurred)
+        chatViewModel.entries.observe(viewLifecycleOwner, onEntriesRetrieved)
+    }
+
+    private val onEntriesRetrieved = Observer<ArrayList<Entry>> {
+
+    }
+
+    private val onErrorOccurred =  Observer<Failure> {
+        val errorMessage = when (it){
+            is Failure.NetworkConnection -> "Network Connection Error"
+            is Failure.NoResponse -> "Server Not Responding"
+            is Failure.ServerError -> "code: ${it.code}, message: ${it.message}"
+            is Failure.FeatureFailure -> "Unexpected Error"
+        }
+        Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
     }
 
 }

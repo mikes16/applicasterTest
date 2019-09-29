@@ -18,4 +18,12 @@ internal class FeedNetwork(
         }
     }
 
+    suspend fun getVideosJson(): Either<Failure, FeedData>{
+        val response = feedApi.getVideosJson()
+        return when(response.isSuccessful){
+            true -> Either.Right(response).map{ it.body().defaultValue }
+            false -> Either.Left(Failure.ServerError(response.code(), response.message()))
+        }
+    }
+
 }

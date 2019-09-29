@@ -14,4 +14,12 @@ interface FeedRepository{
      * */
     suspend fun getLinks(): Either<Failure, FeedData>
 
+    /**
+     * Get The Videos Json from the service
+     *
+     * @return Either<Failure, FeedData>
+     * @see FeedData
+     * */
+    suspend fun getVideos(): Either<Failure, FeedData>
+
 }
