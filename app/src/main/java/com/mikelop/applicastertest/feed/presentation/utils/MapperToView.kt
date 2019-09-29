@@ -1,4 +1,4 @@
-package com.mikelop.applicastertest.feed.presentation
+package com.mikelop.applicastertest.feed.presentation.utils
 
 import com.mikelop.applicastertest.feed.domain.entities.EntryEntity
 import com.mikelop.applicastertest.feed.domain.entities.FeedEntity
@@ -22,7 +22,7 @@ val ArrayList<EntryEntity>.toView: ArrayList<Entry> get() = this.run {
                 title = it.title,
                 summary = it.summary,
                 published = it.published,
-                mediaGroup = it.mediaGroup.toView,
+                image = it.mediaGroup.getImage(),
                 contentSrc = it.contentSrc,
                 link = it.link
             )
@@ -31,33 +31,15 @@ val ArrayList<EntryEntity>.toView: ArrayList<Entry> get() = this.run {
     arrayList
 }
 
-@get:JvmName("MediaItemEntityToView")
-val ArrayList<MediaItemEntity>.toView: ArrayList<MediaItemEntity> get() = this.run {
-    val arrayList = arrayListOf<MediaItemEntity>()
+fun ArrayList<MediaGroupEntity>.getImage(): String {
+    var imageSrc = ""
     this.forEach{
-        arrayList.add(
-            MediaItemEntity(
-                src = it.src,
-                type = it.type,
-                scale = it.scale,
-                key = it.key
-            )
-        )
+        it.mediaItem.forEach{ mediaItem ->
+            if(mediaItem.key == "image_base"){
+                imageSrc = mediaItem.src
+            }
+        }
     }
-    arrayList
-}
 
-
-@get:JvmName("MediaGroupEntityToView")
-val ArrayList<MediaGroupEntity>.toView: ArrayList<MediaGroup> get() = this.run {
-    val arrayList = arrayListOf<MediaGroup>()
-    this.forEach {
-        arrayList.add(
-            MediaGroup(
-                type = it.type,
-                mediaItem = it.mediaItem.toView
-            )
-        )
-    }
-    arrayList
+    return imageSrc
 }

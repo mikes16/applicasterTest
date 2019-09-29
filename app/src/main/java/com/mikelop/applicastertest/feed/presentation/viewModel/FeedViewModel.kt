@@ -7,7 +7,7 @@ import com.mikelop.applicastertest.feed.domain.entities.FeedEntity
 import com.mikelop.applicastertest.feed.domain.interactor.GetLinksUseCase
 import com.mikelop.applicastertest.feed.domain.interactor.GetVideosUseCase
 import com.mikelop.applicastertest.feed.presentation.entities.Entry
-import com.mikelop.applicastertest.feed.presentation.toView
+import com.mikelop.applicastertest.feed.presentation.utils.toView
 
 internal class FeedViewModel(private val getLinksUseCase: GetLinksUseCase,
                              private val getVideosUseCase: GetVideosUseCase): BaseViewModel(){

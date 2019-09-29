@@ -8,10 +8,13 @@ import androidx.lifecycle.Observer
 import com.mikelop.applicastertest.R
 import com.mikelop.applicastertest.common.Failure
 import com.mikelop.applicastertest.common.baseviews.KoinFragment
+import com.mikelop.applicastertest.common.extensions.isNull
 import com.mikelop.applicastertest.feed.di.feedModules
 import com.mikelop.applicastertest.feed.di.feedRepositoryModules
+import com.mikelop.applicastertest.feed.presentation.adapter.FeedEntriesAdapter
 import com.mikelop.applicastertest.feed.presentation.entities.Entry
 import com.mikelop.applicastertest.feed.presentation.viewModel.FeedViewModel
+import kotlinx.android.synthetic.main.fragment_feed.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.module.Module
 
@@ -41,7 +44,9 @@ class FeedFragment : KoinFragment() {
     }
 
     private val onEntriesRetrieved = Observer<ArrayList<Entry>> {
-
+        if(feed_rv.adapter.isNull()) {
+            feed_rv.adapter = FeedEntriesAdapter(it)
+        }
     }
 
     private val onErrorOccurred =  Observer<Failure> {
