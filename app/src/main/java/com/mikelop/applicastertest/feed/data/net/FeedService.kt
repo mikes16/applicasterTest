@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 
 internal class FeedService(private val retrofit: Retrofit): FeedApi {
 
-    private val chatApi by lazy { retrofit.create(FeedApi::class.java) }
+    private val feedApi by lazy { retrofit.create(FeedApi::class.java) }
 
-    override suspend fun getLinksJson(): Response<Feed> = chatApi.getLinksJson()
+    override suspend fun getLinksJson(): Response<Feed> = feedApi.getLinksJson()
 }
