@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dashboard_nav"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/newsFeedFragment">
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/newsFeedFragment"
         android:name="com.mikelop.applicastertest.feed.presentation.view.FeedFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/fragment_feed">
