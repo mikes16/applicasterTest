@@ -6,7 +6,7 @@ package com.mikelop.applicastertest.common
  */
 sealed class Failure {
     object NetworkConnection: Failure()
-    object ServerError : Failure()
+    class ServerError(val code:Int, message: String) : Failure()
     object NoResponse : Failure()
 
     /** * Extend this class for feature specific failures.*/
