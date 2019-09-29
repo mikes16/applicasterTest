@@ -32,5 +32,7 @@ class NetworkHandler(private val context: Context) {
                 }
             }
         }
+
+        false
     }
 }
