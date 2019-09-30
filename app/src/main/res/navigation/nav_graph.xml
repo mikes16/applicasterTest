@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_newsfeedFragment_to_newsLinkFragment"
             app:destination="@id/newsLinkFragment" />
+        <action
+            android:id="@+id/action_newsFeedFragment_to_videoPlayerFragment"
+            app:destination="@id/videoPlayerFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsLinkFragment"
@@ -26,6 +29,17 @@
 
         <argument
             android:name="title"
+            app:argType="string"
+            android:defaultValue="''"/>
+    </fragment>
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.mikelop.applicastertest.videoplayer.presentation.view.VideoPlayerFragment"
+        android:label="fragment_video_player"
+        tools:layout="@layout/fragment_video_player">
+
+        <argument
+            android:name="contentSrc"
             app:argType="string"
             android:defaultValue="''"/>
     </fragment>

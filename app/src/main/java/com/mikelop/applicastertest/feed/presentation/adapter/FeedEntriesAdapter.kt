@@ -66,6 +66,7 @@ internal class FeedEntriesAdapter(private val entries:ArrayList<Entry>) : Recycl
     private fun handleVideoPost(holder: VideoViewHolder, entry: Entry){
         holder.titleTv.text =  entry.title
         holder.summaryTv.text = entry.summary
+        holder.setClickListener(entry.contentSrc)
 
         Glide.with(holder.itemView.context)
             .load(entry.image)
