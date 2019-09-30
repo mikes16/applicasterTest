@@ -48,6 +48,7 @@ internal class FeedEntriesAdapter(private val entries:ArrayList<Entry>) : Recycl
     private fun handleLinkPost(holder: LinkViewHolder, entry: Entry){
         holder.titleTv.text = entry.title
         holder.summaryTv.text = entry.summary
+        holder.setClickListener(entry.link, entry.title)
 
         Glide.with(holder.itemView.context)
             .load(entry.image) // TODO: change this form the domain to get the image
