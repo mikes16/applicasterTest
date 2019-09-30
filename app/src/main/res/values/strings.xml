@@ -3,7 +3,6 @@
 
     <string name="feed_title">News Feed</string>
     <string name="news_image_cd">news</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_search">search</string>
+    <string name="search_hint">Type Something…</string>
 </resources>
