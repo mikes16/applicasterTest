@@ -2,6 +2,8 @@ package com.mikelop.applicastertest.link.presentation.view
 
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -28,13 +30,7 @@ class NewsLinkFragment : KoinFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        (activity!! as MainActivity).showOptions(false)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        (activity!! as MainActivity).showOptions()
+        setHasOptionsMenu(false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
