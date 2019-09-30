@@ -23,7 +23,7 @@ import org.koin.core.module.Module
  */
 class FeedFragment : KoinFragment() {
 
-    private val chatViewModel by viewModel<FeedViewModel>()
+    private val feedViewModel by viewModel<FeedViewModel>()
 
     // Load Koin Modules and set the LayoutView
     override fun getModules(): List<Module> = arrayListOf(feedModules, feedRepositoryModules)
@@ -32,15 +32,15 @@ class FeedFragment : KoinFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        chatViewModel.getFeedLinks()
+        feedViewModel.getFeedLinks()
     }
 
     override fun onStart() {
         super.onStart()
 
         // Observers
-        chatViewModel.failure.observe(viewLifecycleOwner, onErrorOccurred)
-        chatViewModel.entries.observe(viewLifecycleOwner, onEntriesRetrieved)
+        feedViewModel.failure.observe(viewLifecycleOwner, onErrorOccurred)
+        feedViewModel.entries.observe(viewLifecycleOwner, onEntriesRetrieved)
     }
 
     private val onEntriesRetrieved = Observer<ArrayList<Entry>> {

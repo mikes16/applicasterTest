@@ -19,16 +19,10 @@ import org.koin.core.module.Module
  */
 class NewsLinkFragment : KoinFragment() {
 
-    val args: NewsLinkFragmentArgs by navArgs()
+    private val args: NewsLinkFragmentArgs by navArgs()
 
     override fun getModules(): List<Module> = arrayListOf()
     override val layout: Int = R.layout.fragment_news_link
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,7 +35,7 @@ class NewsLinkFragment : KoinFragment() {
             }
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                loader_pb.visibility = View.GONE
+                loader_pb?.visibility = View.GONE
             }
 
 
