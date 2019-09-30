@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.google.android.exoplayer2.Player
 import com.mikelop.applicastertest.R
+import com.mikelop.applicastertest.app.MainActivity
 import com.mikelop.applicastertest.common.baseviews.KoinFragment
 import com.mikelop.applicastertest.videoplayer.presentation.viewmodel.VideoPlayerViewModel
 import org.koin.core.module.Module
@@ -39,6 +40,7 @@ class VideoPlayerFragment : KoinFragment(), Player.EventListener {
         super.onDestroy()
 
         activity!!.window.decorView.systemUiVisibility = 0
+        (activity as MainActivity).showNavBar()
     }
 
     private val onPlayerReady = Observer<Player?>{
@@ -55,6 +57,8 @@ class VideoPlayerFragment : KoinFragment(), Player.EventListener {
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+
+        (activity as MainActivity).showNavBar(false)
     }
 
 

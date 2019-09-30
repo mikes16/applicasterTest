@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 
 import com.mikelop.applicastertest.R
+import com.mikelop.applicastertest.app.MainActivity
 import com.mikelop.applicastertest.common.baseviews.KoinFragment
 import kotlinx.android.synthetic.main.fragment_news_link.*
 import kotlinx.android.synthetic.main.fragment_news_link.view.*
@@ -23,6 +24,18 @@ class NewsLinkFragment : KoinFragment() {
 
     override fun getModules(): List<Module> = arrayListOf()
     override val layout: Int = R.layout.fragment_news_link
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        (activity!! as MainActivity).showOptions(false)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        (activity!! as MainActivity).showOptions()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
