@@ -6,7 +6,7 @@ Applicaster media news feed show data loaded from a service using clean architec
 Prerequisites
 --------------
 
-- Android SDK v24
+- Android SDK v21
 - Latest Android Build Tools
 - Android Support Repository
 
