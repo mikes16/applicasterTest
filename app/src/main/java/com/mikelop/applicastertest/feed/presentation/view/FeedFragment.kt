@@ -41,7 +41,6 @@ class FeedFragment : KoinFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        feedViewModel.getFeedLinks()
         setHasOptionsMenu(true)
     }
 

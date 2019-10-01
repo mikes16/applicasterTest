@@ -20,6 +20,10 @@ internal class FeedViewModel(private val getLinksUseCase: GetLinksUseCase,
     // Public values
     val entries: LiveData<ArrayList<Entry>> = _entries
 
+    init {
+        getFeedLinks()
+    }
+
     fun getFeedLinks(){
         if(entriesResponse.isEmpty()) {
             getVideosUseCase(GetVideosUseCase.Params) {
