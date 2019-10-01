@@ -22,3 +22,12 @@ This sample uses the Gradle build system.
 1. If prompted for a gradle configuration, accept the default settings.
   Alternatively use the "gradlew build" command to build the project directly.
 
+External Libraries Used
+------------------------
+
+- Retrofit
+- Glide
+- Koin
+- OkHttp
+- ExoPlayer
+- Gson
