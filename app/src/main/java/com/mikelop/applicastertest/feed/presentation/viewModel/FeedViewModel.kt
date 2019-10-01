@@ -21,12 +21,14 @@ internal class FeedViewModel(private val getLinksUseCase: GetLinksUseCase,
     val entries: LiveData<ArrayList<Entry>> = _entries
 
     fun getFeedLinks(){
-        getVideosUseCase(GetVideosUseCase.Params) {
-            it.either(::handleFailure, ::handleResponse)
-        }
+        if(entriesResponse.isEmpty()) {
+            getVideosUseCase(GetVideosUseCase.Params) {
+                it.either(::handleFailure, ::handleResponse)
+            }
 
-        getLinksUseCase(GetLinksUseCase.Params) {
-            it.either(::handleFailure, ::handleResponse)
+            getLinksUseCase(GetLinksUseCase.Params) {
+                it.either(::handleFailure, ::handleResponse)
+            }
         }
     }
 
