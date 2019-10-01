@@ -25,9 +25,9 @@ This sample uses the Gradle build system.
 External Libraries Used
 ------------------------
 
-- Retrofit
-- Glide
-- Koin
-- OkHttp
-- ExoPlayer
-- Gson
+[Retrofit](http://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java
+[Glide](https://github.com/bumptech/glide) - A fast and efficient open source media management and image loading framework for Android
+[Koin](https://insert-koin.io/) - A pragmatic lightweight dependency injection framework for Kotlin developers
+[OkHttp](https://square.github.io/okhttp/) - an HTTP client
+[ExoPlayer](https://exoplayer.dev) - An application level media player for Android. It provides an alternative to Android’s MediaPlayer API for playing audio and video both locally and over the Internet.
+[Gson](https://code.google.com/p/google-gson/) - Java library for JSON serialization and deserialization
